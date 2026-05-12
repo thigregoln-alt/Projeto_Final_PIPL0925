@@ -793,6 +793,40 @@ relatorioCard.append(relatorioHeader);
 compGrid.append(relatorioCard);
 
 sec.append(compGrid);
+// Quiz Wordwall
+const quizWrap = el('div', { className: 'fade-in' });
+quizWrap.style.cssText = 'margin-top:3rem;';
+
+const quizLabel = el('p', {});
+quizLabel.style.cssText = 'font-family:var(--font-mono);color:var(--text-dim);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem;';
+quizLabel.textContent = '▸ Quiz — Arquitetura de Hardware';
+
+const quizLink = el('a', { href: 'https://wordwall.net/pt/resource/112714744', target: '_blank', rel: 'noopener' });
+quizLink.style.cssText = 'display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;background:var(--card);border:1px solid var(--border);border-radius:8px;text-decoration:none;transition:all 0.3s;';
+
+const quizIcon = el('span', {});
+quizIcon.style.cssText = 'font-size:2rem;flex-shrink:0;';
+quizIcon.textContent = '🧩';
+
+const quizText = el('div', {});
+const quizTitle = el('p', {});
+quizTitle.style.cssText = 'font-family:var(--font-title);font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.25rem;letter-spacing:1px;';
+quizTitle.textContent = 'Quiz — Componentes de Hardware';
+const quizDesc = el('p', {});
+quizDesc.style.cssText = 'font-family:var(--font-mono);font-size:0.78rem;color:var(--text-dim);';
+quizDesc.textContent = 'Testa os teus conhecimentos sobre os componentes do PC';
+
+const quizArrow = el('span', {});
+quizArrow.style.cssText = 'margin-left:auto;color:var(--green);font-size:1.3rem;flex-shrink:0;';
+quizArrow.textContent = '↗';
+
+quizText.append(quizTitle, quizDesc);
+quizLink.append(quizIcon, quizText, quizArrow);
+quizLink.addEventListener('mouseenter', () => { quizLink.style.borderColor='var(--border-bright)'; quizLink.style.boxShadow='var(--glow)'; quizLink.style.transform='translateY(-2px)'; });
+quizLink.addEventListener('mouseleave', () => { quizLink.style.borderColor='var(--border)'; quizLink.style.boxShadow=''; quizLink.style.transform=''; });
+
+quizWrap.append(quizLabel, quizLink);
+sec.append(quizWrap);
   root.append(sec, divider());
 }
 
